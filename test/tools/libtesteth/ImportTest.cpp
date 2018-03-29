@@ -725,6 +725,8 @@ bool ImportTest::checkGeneralTestSectionSearch(json_spirit::mObject const& _expe
                 }
                 else if (_expects.count("hash"))
                 {
+                    // print state
+                    cerr << "postState:\n" << tr.postState << "\n";
                     // checking filled state test against client
                     BOOST_CHECK_MESSAGE(_expects.at("hash").get_str() ==
                                             toHexPrefixed(tr.postState.rootHash().asBytes()),
